@@ -1,30 +1,17 @@
-﻿var steps = 12;
-var path = "DDUUDDUDUUUD";
-var pathChar = path.ToCharArray().ToList();
-var valleyStart = 0;
-var valleyCount = 0;
+﻿var ar = new List<int> {10, 20, 20, 10, 10, 30, 50, 10, 20 }; 
+int pairCount = 0;
 
-for (int i = 0; i < steps; i++)
-{
-    if (path[i] == 'U')
-    {
-        valleyStart +=1;
+Dictionary<int, int> dict = new Dictionary<int, int>();
+for (int i = 0; i < ar.Count; i++) {
+    if (dict.ContainsKey(ar[i])) {
+        dict[ar[i]]++;
+    } else {
+        dict[ar[i]] = 1;
     }
-    else
-    {
-        valleyStart -=1;
-    }
-
-    if (valleyStart == 0 && path[i] == 'U')
-        valleyCount+=1;
 }
 
-Console.WriteLine(valleyCount);
+foreach (int value in dict.Values) {
+    pairCount += value / 2;
+}
 
-// _/\      _
-//    \    /
-//     \/\/
-
-// _          /\ 
-//  \  /\    /
-//   \/  \/\/
+return pairCount;
