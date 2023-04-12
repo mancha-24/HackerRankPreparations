@@ -1,5 +1,8 @@
-﻿var candles = new List<int> {3,2,1,3};
-var max = candles.Max();
-var countMax = candles.Count(c => c == max);
+﻿var ar = new List<long> 
+{
+    1000000001,1000000002,1000000003,1000000004,1000000005
+};
 
-Console.WriteLine(countMax);
+var result = ar.Sum();
+
+Console.WriteLine(result);
