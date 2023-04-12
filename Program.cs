@@ -1,8 +1,25 @@
-﻿var ar = new List<long> 
+﻿var grades = new List<int> 
 {
-    1000000001,1000000002,1000000003,1000000004,1000000005
+    73,67,38,33
 };
+var result = new List<int>();
+for (int i = 0; i < grades.Count; i++)
+{
+    if (grades[i] >= 38)
+    {
+        if((grades[i])%5 >= 3)
+        {
+            result.Add(grades[i] + (5-grades[i]%5));
+        }
+        else
+        {
+            result.Add(grades[i]);
+        }
+    }
+    else
+    {
+        result.Add(grades[i]);
+    }
+}
 
-var result = ar.Sum();
-
-Console.WriteLine(result);
+result.ForEach(r => Console.WriteLine(r));
