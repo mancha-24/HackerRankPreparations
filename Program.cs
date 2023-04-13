@@ -1,25 +1,25 @@
-﻿var grades = new List<int> 
-{
-    73,67,38,33
-};
-var result = new List<int>();
-for (int i = 0; i < grades.Count; i++)
-{
-    if (grades[i] >= 38)
-    {
-        if((grades[i])%5 >= 3)
-        {
-            result.Add(grades[i] + (5-grades[i]%5));
-        }
-        else
-        {
-            result.Add(grades[i]);
-        }
-    }
-    else
-    {
-        result.Add(grades[i]);
-    }
-}
+﻿// s: integer, starting point of Sam's house location.
+// t: integer, ending location of Sam's house location.
+// a: integer, location of the Apple tree.
+// b: integer, location of the Orange tree.
+// apples: integer array, distances at which each apple falls from the tree.
+// oranges: integer array, distances at which each orange falls from the tree.
 
-result.ForEach(r => Console.WriteLine(r));
+var s = 7;
+var t = 11;
+var a = 5;
+var b = 15;
+var apples = new List<int>
+{
+    -2,2,1
+};
+var oranges = new List<int>
+{
+    5,-6
+};
+
+var countApples = apples.Count(ap => (ap+a) >= s && (ap+a) <= t);
+var countOranges = oranges.Count(or => (or+b) >= s && (or+b) <= t);
+
+Console.WriteLine(countApples);
+Console.WriteLine(countOranges);
